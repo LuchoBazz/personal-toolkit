@@ -14,7 +14,8 @@ const countryCodes: CountryCodes = {
   "BR": { code: "55", name: "Brazil" },
   "CO": { code: "57", name: "Colombia" },
   "UK": { code: "44", name: "United Kingdom" },
-  "IN": { code: "91", name: "India" }
+  "IN": { code: "91", name: "India" },
+  "MT": { code: "356", name: "Malta" },
 };
 
 export function PhoneNumberCountry(): JSX.Element {
