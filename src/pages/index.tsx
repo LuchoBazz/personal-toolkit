@@ -5,7 +5,7 @@ export default function Home(): JSX.Element {
   const history = useHistory();
 
   useEffect(() => {
-    history.push('/docusaurus-personal-starter-kit/docs/intro');
+    history.push('/personal-toolkit/docs/intro');
   }, [history]);
 
   return (<></>);
