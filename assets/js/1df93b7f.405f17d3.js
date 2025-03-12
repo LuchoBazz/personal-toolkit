@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkpersonal_toolkit=self.webpackChunkpersonal_toolkit||[]).push([[583],{6866:(t,e,o)=>{o.r(e),o.d(e,{default:()=>l});var s=o(6540),n=o(6347),r=o(4848);function l(){const t=(0,n.W6)();return(0,s.useEffect)((()=>{t.push("/personal-toolkit/docs/intro")}),[t]),(0,r.jsx)(r.Fragment,{})}}}]);
