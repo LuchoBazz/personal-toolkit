@@ -19,6 +19,7 @@
     "@docusaurus/preset-classic": "3.5.2",
     "@easyops-cn/docusaurus-search-local": "^0.44.5",
     "@mdx-js/react": "^3.0.0",
+    "awesome-phonenumber": "^7.4.0",
     "clsx": "^2.0.0",
     "katex": "^0.16.11",
     "prism-react-renderer": "^2.3.0",
