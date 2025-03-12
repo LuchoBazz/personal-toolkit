@@ -1,11 +1,9 @@
 ---
 sidebar_position: 1
-title: Tools
-sidebar_label: Tools
+title: Phone Number Tools
+sidebar_label: Phone Number Tools
 ---
 
 import PhoneNumberCountry from '@site/src/components/PhoneNumberCountry';
-
-# Tools!
 
 <PhoneNumberCountry />
