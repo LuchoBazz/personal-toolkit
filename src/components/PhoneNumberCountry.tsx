@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import CodeBlock from '@theme/CodeBlock';
 import { parsePhoneNumber } from "awesome-phonenumber";
 
 interface CountryCodes {
@@ -73,10 +74,12 @@ export function PhoneNumberCountry(): JSX.Element {
         Get Country
       </button>
 
+      {"\n"}
+
       {answer && (
-        <pre className="mt-4 p-4 bg-gray-100 text-sm text-gray-700 rounded-md">
-          <code>{answer}</code>
-        </pre>
+        <CodeBlock language="json">
+          {answer}
+        </CodeBlock>
       )}
     </div>
   );
