@@ -7,6 +7,6 @@ sidebar_label: Phone Number Tools
 
 # Phone Number Tools
 
-import PhoneNumberCountry from '@site/src/components/PhoneNumberCountry';
+import PhoneNumberCountry from '@site/src/components/phone-number/PhoneNumberCountry';
 
 <PhoneNumberCountry />

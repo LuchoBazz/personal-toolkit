@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import CodeBlock from '@theme/CodeBlock';
 import { parsePhoneNumber } from "awesome-phonenumber";
+import countryCodesJSON from "./countries.json"
 
 interface CountryCodes {
   [key: string]: {
@@ -9,15 +10,7 @@ interface CountryCodes {
   };
 }
 
-const countryCodes: CountryCodes = {
-  "US": { code: "1", name: "United States" },
-  "ES": { code: "34", name: "Spain" },
-  "BR": { code: "55", name: "Brazil" },
-  "CO": { code: "57", name: "Colombia" },
-  "UK": { code: "44", name: "United Kingdom" },
-  "IN": { code: "91", name: "India" },
-  "MT": { code: "356", name: "Malta" },
-};
+const countryCodes: CountryCodes = countryCodesJSON;
 
 export function PhoneNumberCountry(): JSX.Element {
   const [countryCode, setCountryCode] = useState<string>("");
@@ -64,7 +57,7 @@ export function PhoneNumberCountry(): JSX.Element {
 
   return (
     <div className="max-w-md mx-auto p-6 bg-white shadow-md rounded-lg">
-      <h2 className="text-2xl font-semibold mb-4">Enter Phone Number</h2>
+      <h2 className="text-2xl font-semibold mb-4">Phone Number Details</h2>
       
       <select
         value={countryCode}
@@ -106,7 +99,7 @@ export function PhoneNumberCountry(): JSX.Element {
         onClick={handleButtonClick}
         className="w-full p-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
       >
-        Get Country
+        Get Phone Number Details
       </button>
 
       <hr className="border-gray-300 my-4" />
