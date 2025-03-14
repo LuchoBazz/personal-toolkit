@@ -1,47 +1,34 @@
 ---
 sidebar_position: 1
+sidebar_label: Intro
 ---
 
-# Tutorial Intro
+# Welcome to Personal-Toolkit
 
-Let's discover **Docusaurus in less than 5 minutes**.
+Welcome to **Personal-Toolkit**! This repository is a collection of personal apps, and productivity tools that I use daily to **enhance efficiency**, **streamline tasks**, and **simplify workflows**. Whether it's automating repetitive actions, managing projects, or optimizing daily operations, these tools are designed to improve productivity and save time.
 
-## Getting Started
+> **Note:** Some of these tools leverage AI-powered automation and scripting to maximize efficiency.
 
-Get started by **creating a new site**.
+## ⚠️ **Disclaimer**  
+This repository contains tools tailored to my personal workflow. While they may be useful to others, they come with no guarantees. Use them at your own discretion, and feel free to customize them to fit your needs.
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+## What is Personal-Toolkit?  
+**Personal-Toolkit** is a curated set of utilities aimed at simplifying daily tasks and boosting productivity. By maintaining this toolkit, I aim to build a **versatile and efficient system** that minimizes friction in everyday workflows.
 
-### What you'll need
+## Repository Contents  
+- **Custom Productivity Apps**: Applications designed to assist with task management, scheduling, and workflow optimization.  
+- **Automation Scripts**: Prebuilt scripts to automate common tasks and eliminate manual work.  
 
-- [Node.js](https://nodejs.org/en/download/) version 18.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+## Related Repositories  
+- [Knowledge-Core](https://luchobazz.github.io/knowledge-core/docs/intro)  
+  A repository of technical concepts, code snippets, and essential knowledge for developers.  
+- [cpp-algorithm-snippets](https://luchobazz.github.io/cpp-algorithm-snippets/docs/intro)  
+  A collection of useful snippets for competitive programming (In Progress).  
 
-## Generate a new site
+## Contributions  
+If you have productivity tools, scripts, or workflow optimizations that could improve efficiency, feel free to contribute! Suggestions, pull requests, and discussions are always welcome.
 
-Generate a new Docusaurus site using the **classic template**.
+## Getting Started  
+Explore the different sections to discover scripts, apps, and utilities designed to **enhance your daily workflow**. Each tool includes setup instructions and usage details.
 
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
-```
-
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+Thank you for visiting **Personal-Toolkit**! 🚀
