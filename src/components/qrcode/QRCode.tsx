@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { JSX, useState } from "react";
 import { QRCodeCanvas } from 'qrcode.react';
 
 export default function QRCode(): JSX.Element {
@@ -18,7 +18,7 @@ export default function QRCode(): JSX.Element {
       const downloadLink = document.createElement("a");
       downloadLink.href = pngUrl;
       downloadLink.download = "my-qr-code.png";
-      
+
       document.body.appendChild(downloadLink);
       downloadLink.click();
       document.body.removeChild(downloadLink);
