@@ -1,11 +1,8 @@
 ---
 sidebar_position: 2
-title: Editor
-sidebar_label: Editor
+title: Text Editor
+sidebar_label: Text Editor
 ---
-
-
-# Editor
 
 import Editor from '@site/src/components/editor/Editor';
 
