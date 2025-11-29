@@ -97,7 +97,7 @@ export default function PhoneGenerator() {
                 >
                   {COUNTRIES.map((country) => (
                     <option key={country.code} value={country.code}>
-                      {country.icon} {country.name} ({country.code})
+                      {country.name} {country.icon} ({country.code})
                     </option>
                   ))}
                 </select>
