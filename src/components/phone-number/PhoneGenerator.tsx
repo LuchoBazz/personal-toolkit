@@ -1,16 +1,6 @@
 import React, { useState } from "react";
 import { Copy, Check, RefreshCw, Phone, Globe } from "lucide-react";
 
-/**
- * NOTE FOR DEVELOPER:
- * In a real project, you must install the library by running:
- * npm install phone-number-generator-js
- * * And then uncomment the following line:
- * import PhoneNumberGenerator from 'phone-number-generator-js';
- */
-
-// --- START OF MOCK (LIBRARY SIMULATION) ---
-// This ensures the preview works without installing external dependencies.
 const PhoneNumberGenerator = {
   generate: (countryCode: string) => {
     const random = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
@@ -40,7 +30,6 @@ const PhoneNumberGenerator = {
     }
   }
 };
-// --- END OF MOCK ---
 
 const COUNTRIES = [
   { code: "ES", name: "Spain", icon: "🇪🇸" },
@@ -66,7 +55,6 @@ export default function PhoneGenerator() {
     if (validCount > 20) validCount = 20;
     setCount(validCount.toString());
 
-    // Generate numbers using the library (or mock)
     const newPhones = Array.from({ length: validCount }, () =>
       PhoneNumberGenerator.generate(selectedCountry)
     );
@@ -75,11 +63,9 @@ export default function PhoneGenerator() {
   };
 
   const copyToClipboard = (text: string) => {
-    // Use execCommand as safe fallback for iframes, or navigator if available
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(text).then(() => triggerCopyFeedback(text));
     } else {
-      // Legacy fallback method
       const textArea = document.createElement("textarea");
       textArea.value = text;
       document.body.appendChild(textArea);
@@ -103,13 +89,11 @@ export default function PhoneGenerator() {
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4 font-sans">
       <div className="w-full max-w-md bg-white shadow-lg rounded-xl overflow-hidden flex flex-col max-h-[90vh]">
 
-        {/* Header - Reverted to Indigo to match reference code */}
         <div className="bg-indigo-600 p-6 shrink-0 relative overflow-hidden">
           <div className="absolute top-0 right-0 p-4 opacity-10">
             <Phone className="w-24 h-24 text-white" />
           </div>
           <div className="flex justify-center mb-2 relative z-10">
-            {/* Simple icon container matching reference style */}
             <Phone className="text-indigo-200 w-8 h-8" />
           </div>
           <h2 className="text-2xl font-bold text-white text-center relative z-10">Phone Generator</h2>
@@ -119,10 +103,7 @@ export default function PhoneGenerator() {
         </div>
 
         <div className="p-6 flex flex-col h-full overflow-hidden">
-          {/* Controls Area */}
           <div className="shrink-0 space-y-4">
-
-            {/* Country Selector */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center gap-2">
                 <Globe className="w-4 h-4" /> Country
@@ -145,7 +126,6 @@ export default function PhoneGenerator() {
               </div>
             </div>
 
-            {/* Quantity Input */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Quantity (Max 20)
@@ -161,7 +141,6 @@ export default function PhoneGenerator() {
               />
             </div>
 
-            {/* Generate Button */}
             <button
               onClick={handleGenerate}
               className="w-full py-3 px-4 rounded-lg font-semibold text-white transition-colors bg-indigo-600 hover:bg-indigo-700 shadow-md flex items-center justify-center gap-2 mt-2"
@@ -173,7 +152,6 @@ export default function PhoneGenerator() {
 
           <hr className="border-gray-200 my-6 shrink-0" />
 
-          {/* Results Area */}
           <div className="flex-1 overflow-y-auto min-h-[150px] pr-1 custom-scrollbar">
             {phones.length > 0 ? (
               <div className="space-y-3 animate-fade-in pb-2">
