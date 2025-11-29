@@ -1,64 +1,45 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { Copy, Check, RefreshCw, Phone, Globe } from "lucide-react";
+import { generatePhoneNumber } from 'phone-number-generator-js';
+import { countryPhoneDataArray as countryPhoneData } from 'phone-number-generator-js/dist/esm/countryPhoneData';
+import { parsePhoneNumber } from 'awesome-phonenumber';
 
-const PhoneNumberGenerator = {
-  generate: (countryCode: string) => {
-    const random = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
-    const digits = (n: number) => Array.from({ length: n }, () => random(0, 9)).join('');
-
-    switch (countryCode) {
-      case 'ES': // Spain
-        return `+34 ${random(6, 7)}${digits(2)} ${digits(3)} ${digits(3)}`;
-      case 'MX': // Mexico
-        return `+52 55 ${digits(4)} ${digits(4)}`;
-      case 'US': // United States
-        return `+1 (${random(200, 999)}) ${random(200, 999)}-${digits(4)}`;
-      case 'AR': // Argentina
-        return `+54 9 11 ${digits(4)}-${digits(4)}`;
-      case 'CO': // Colombia
-        return `+57 3${random(0, 2)}${digits(1)} ${digits(3)} ${digits(4)}`;
-      case 'BR': // Brazil
-        return `+55 11 9${digits(4)}-${digits(4)}`;
-      case 'UK': // United Kingdom
-        return `+44 7${digits(3)} ${digits(6)}`;
-      case 'FR': // France
-        return `+33 ${random(6, 7)} ${digits(2)} ${digits(2)} ${digits(2)} ${digits(2)}`;
-      case 'DE': // Germany
-        return `+49 1${random(5, 7)}${digits(1)} ${digits(7)}`;
-      default:
-        return `+00 ${digits(10)}`;
-    }
-  }
+// Helper to convert country code to flag emoji
+const getFlagEmoji = (countryCode: string) => {
+  const codePoints = countryCode
+    .toUpperCase()
+    .split('')
+    .map(char => 127397 + char.charCodeAt(0));
+  return String.fromCodePoint(...codePoints);
 };
 
-const COUNTRIES = [
-  { code: "ES", name: "Spain", icon: "🇪🇸" },
-  { code: "MX", name: "Mexico", icon: "🇲🇽" },
-  { code: "US", name: "United States", icon: "🇺🇸" },
-  { code: "CO", name: "Colombia", icon: "🇨🇴" },
-  { code: "AR", name: "Argentina", icon: "🇦🇷" },
-  { code: "BR", name: "Brazil", icon: "🇧🇷" },
-  { code: "UK", name: "United Kingdom", icon: "🇬🇧" },
-  { code: "FR", name: "France", icon: "🇫🇷" },
-  { code: "DE", name: "Germany", icon: "🇩🇪" },
-];
+// Map library data to our format and sort by name
+const COUNTRIES = countryPhoneData.map(country => ({
+  code: country.alpha2,
+  name: country.country_name,
+  icon: getFlagEmoji(country.alpha2)
+})).sort((a, b) => a.name.localeCompare(b.name));
 
 export default function PhoneGenerator() {
-  const [count, setCount] = useState<string>("5");
-  const [selectedCountry, setSelectedCountry] = useState<string>("ES");
+  const [selectedCountry, setSelectedCountry] = useState("ES");
+  const [count, setCount] = useState("5");
   const [phones, setPhones] = useState<string[]>([]);
   const [copiedId, setCopiedId] = useState<string | null>(null);
 
   const handleGenerate = () => {
-    let validCount = parseInt(count, 10);
+    let validCount = parseInt(count);
     if (isNaN(validCount) || validCount < 1) validCount = 1;
     if (validCount > 20) validCount = 20;
     setCount(validCount.toString());
 
-    const newPhones = Array.from({ length: validCount }, () =>
-      PhoneNumberGenerator.generate(selectedCountry)
-    );
+    const countryInfo = COUNTRIES.find(c => c.code === selectedCountry);
+    const countryName = countryInfo ? countryInfo.name : "Spain";
 
+    const newPhones = Array.from({ length: validCount }, () => {
+      const generated = generatePhoneNumber({ countryName });
+      const parsed = parsePhoneNumber(generated);
+      return parsed.valid ? parsed.number.international : generated;
+    });
     setPhones(newPhones);
   };
 
@@ -71,10 +52,10 @@ export default function PhoneGenerator() {
       document.body.appendChild(textArea);
       textArea.select();
       try {
-        document.execCommand('copy');
+        document.execCommand("copy");
         triggerCopyFeedback(text);
       } catch (err) {
-        console.error('Error copying text', err);
+        console.error("Fallback: Oops, unable to copy", err);
       }
       document.body.removeChild(textArea);
     }
@@ -155,13 +136,6 @@ export default function PhoneGenerator() {
           <div className="flex-1 overflow-y-auto min-h-[150px] pr-1 custom-scrollbar">
             {phones.length > 0 ? (
               <div className="space-y-3 animate-fade-in pb-2">
-                <div className="flex justify-between items-center px-1 mb-2">
-                  <p className="text-xs text-gray-500 font-medium uppercase tracking-wider">
-                    Results ({phones.length})
-                  </p>
-                  <span className="text-[10px] text-gray-500 bg-gray-100 px-2 py-1 rounded-full">Click to copy</span>
-                </div>
-
                 {phones.map((phone, index) => (
                   <button
                     key={`${phone}-${index}`}
@@ -201,31 +175,6 @@ export default function PhoneGenerator() {
           </div>
         </div>
       </div>
-
-      {/* Styles */}
-      <style>{`
-        @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(10px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-in {
-          animation: fadeIn 0.4s ease-out forwards;
-        }
-        .custom-scrollbar::-webkit-scrollbar {
-          width: 6px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-          background: #f1f1f1;
-          border-radius: 4px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: #d1d5db;
-          border-radius: 4px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: #9ca3af;
-        }
-      `}</style>
     </div>
   );
 }
