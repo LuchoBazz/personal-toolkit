@@ -6,8 +6,8 @@ export function Editor(): JSX.Element {
   const [answer, setAnswer] = useState<string>("");
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4 font-sans">
-      <div className="w-full max-w-lg bg-white shadow-lg rounded-xl overflow-hidden flex flex-col my-8">
+    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 flex items-center justify-center p-4 font-sans">
+      <div className="w-full max-w-lg bg-white dark:bg-gray-800 shadow-lg rounded-xl overflow-hidden flex flex-col my-8">
 
         {/* Header */}
         <div className="bg-indigo-600 p-6 p-6 shrink-0 relative overflow-hidden">
@@ -29,19 +29,19 @@ export function Editor(): JSX.Element {
 
             {/* Text Area */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center gap-2">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 flex items-center gap-2">
                 <Edit3 className="w-4 h-4" /> Your Text
               </label>
               <textarea
                 value={answer}
                 onChange={(e) => setAnswer(e.target.value)}
-                className="w-full h-32 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none transition-all font-mono resize-none"
+                className="w-full h-32 p-3 border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none transition-all font-mono resize-none"
                 placeholder="Write your text here..."
               />
             </div>
           </div>
 
-          <hr className="border-gray-200 my-6 shrink-0" />
+          <hr className="border-gray-200 dark:border-gray-700 my-6 shrink-0" />
 
           {/* Results */}
           <div className="pb-2">
@@ -52,12 +52,12 @@ export function Editor(): JSX.Element {
                 </CodeBlock>
               </div>
             ) : (
-              <div className="flex flex-col items-center justify-center text-gray-400 py-12">
-                <div className="bg-gray-50 p-4 rounded-full mb-3">
+              <div className="flex flex-col items-center justify-center text-gray-400 dark:text-gray-500 py-12">
+                <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-full mb-3">
                   <FileText className="h-8 w-8 opacity-20" />
                 </div>
                 <p className="font-medium">Ready to write</p>
-                <p className="text-xs mt-1 text-gray-400">Start typing to see your text</p>
+                <p className="text-xs mt-1 text-gray-400 dark:text-gray-500">Start typing to see your text</p>
               </div>
             )}
           </div>

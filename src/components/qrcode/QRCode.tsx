@@ -26,8 +26,8 @@ export default function QRCode(): JSX.Element {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
-      <div className="w-full max-w-md bg-white shadow-lg rounded-xl overflow-hidden">
+    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 flex items-center justify-center p-4">
+      <div className="w-full max-w-md bg-white dark:bg-gray-800 shadow-lg rounded-xl overflow-hidden">
 
         {/* Header */}
         <div className="bg-indigo-600 p-6 shrink-0 relative overflow-hidden">
@@ -39,14 +39,14 @@ export default function QRCode(): JSX.Element {
 
         <div className="p-6">
           {/* URL Input */}
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
             Enter your URL or text
           </label>
           <input
             type="text"
             value={url}
             onChange={(e) => setUrl(e.target.value)}
-            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none transition-all mb-4"
+            className="w-full p-3 border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none transition-all mb-4"
             placeholder="https://example.com"
           />
 
@@ -55,20 +55,20 @@ export default function QRCode(): JSX.Element {
             onClick={handleGenerate}
             disabled={!url}
             className={`w-full py-3 px-4 rounded-lg font-semibold text-white transition-colors ${url
-                ? "bg-indigo-600 hover:bg-indigo-700 shadow-md"
-                : "bg-gray-300 cursor-not-allowed"
+              ? "bg-indigo-600 hover:bg-indigo-700 shadow-md"
+              : "bg-gray-300 dark:bg-gray-700 cursor-not-allowed"
               }`}
           >
             Generate QR
           </button>
 
-          <hr className="border-gray-200 my-6" />
+          <hr className="border-gray-200 dark:border-gray-700 my-6" />
 
           {/* Preview Area */}
           <div className="flex flex-col items-center justify-center min-h-[220px]">
             {qrValue ? (
               <div className="flex flex-col items-center animate-fade-in">
-                <div className="p-4 bg-white border-2 border-indigo-100 rounded-xl shadow-sm">
+                <div className="p-4 bg-white dark:bg-gray-800 border-2 border-indigo-100 dark:border-indigo-900 rounded-xl shadow-sm">
                   {/* qrcode.react component 
                      Make sure to install: npm install qrcode.react
                   */}
@@ -83,7 +83,7 @@ export default function QRCode(): JSX.Element {
                   />
                 </div>
 
-                <p className="mt-4 text-sm text-gray-500 break-all text-center px-4 max-w-xs">
+                <p className="mt-4 text-sm text-gray-500 dark:text-gray-400 break-all text-center px-4 max-w-xs">
                   {qrValue}
                 </p>
 
@@ -99,7 +99,7 @@ export default function QRCode(): JSX.Element {
                 </button>
               </div>
             ) : (
-              <div className="text-center text-gray-400">
+              <div className="text-center text-gray-400 dark:text-gray-500">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 mx-auto mb-2 opacity-20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v1m6 11h2m-6 0h-2v4h2v-4zM6 6h6v6H6V6zm12 0h6v6h-6V6zm0 12h6v6h-6v-6zM6 18h6v6H6v-6z" />
                 </svg>

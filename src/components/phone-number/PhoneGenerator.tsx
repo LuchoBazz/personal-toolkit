@@ -67,8 +67,8 @@ export default function PhoneGenerator() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4 font-sans">
-      <div className="w-full max-w-md bg-white shadow-lg rounded-xl overflow-hidden flex flex-col max-h-[90vh]">
+    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 flex items-center justify-center p-4 font-sans">
+      <div className="w-full max-w-md bg-white dark:bg-gray-800 shadow-lg rounded-xl overflow-hidden flex flex-col max-h-[90vh]">
 
         <div className="bg-indigo-600 p-6 shrink-0 relative overflow-hidden">
           <div className="absolute top-0 right-0 p-4 opacity-10">
@@ -86,14 +86,14 @@ export default function PhoneGenerator() {
         <div className="p-6 flex flex-col h-full overflow-hidden">
           <div className="shrink-0 space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center gap-2">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 flex items-center gap-2">
                 <Globe className="w-4 h-4" /> Country
               </label>
               <div className="relative">
                 <select
                   value={selectedCountry}
                   onChange={(e) => setSelectedCountry(e.target.value)}
-                  className="w-full p-3 bg-white border border-gray-300 rounded-lg appearance-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none transition-all cursor-pointer text-gray-700"
+                  className="w-full p-3 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg appearance-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none transition-all cursor-pointer text-gray-700 dark:text-gray-100"
                 >
                   {COUNTRIES.map((country) => (
                     <option key={country.code} value={country.code}>
@@ -108,7 +108,7 @@ export default function PhoneGenerator() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 Quantity (Max 20)
               </label>
               <input
@@ -117,7 +117,7 @@ export default function PhoneGenerator() {
                 max="20"
                 value={count}
                 onChange={(e) => setCount(e.target.value)}
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none transition-all"
+                className="w-full p-3 border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none transition-all"
                 placeholder="5"
               />
             </div>
@@ -131,7 +131,7 @@ export default function PhoneGenerator() {
             </button>
           </div>
 
-          <hr className="border-gray-200 my-6 shrink-0" />
+          <hr className="border-gray-200 dark:border-gray-700 my-6 shrink-0" />
 
           <div className="flex-1 overflow-y-auto min-h-[150px] pr-1 custom-scrollbar">
             {phones.length > 0 ? (
@@ -141,8 +141,8 @@ export default function PhoneGenerator() {
                     key={`${phone}-${index}`}
                     onClick={() => copyToClipboard(phone)}
                     className={`w-full group flex items-center justify-between p-3 rounded-lg border text-sm font-mono transition-all duration-200 ${copiedId === phone
-                      ? "bg-emerald-50 border-emerald-200 text-emerald-700"
-                      : "bg-white border-gray-200 text-gray-600 hover:border-indigo-300 hover:shadow-sm hover:bg-gray-50"
+                      ? "bg-emerald-50 dark:bg-emerald-900/20 border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-400"
+                      : "bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:border-indigo-300 hover:shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700"
                       }`}
                   >
                     <div className="flex items-center gap-3">
@@ -164,12 +164,12 @@ export default function PhoneGenerator() {
                 ))}
               </div>
             ) : (
-              <div className="h-full flex flex-col items-center justify-center text-gray-400">
-                <div className="bg-gray-50 p-4 rounded-full mb-3">
+              <div className="h-full flex flex-col items-center justify-center text-gray-400 dark:text-gray-500">
+                <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-full mb-3">
                   <Phone className="h-8 w-8 opacity-20" />
                 </div>
                 <p className="font-medium">Ready to generate</p>
-                <p className="text-xs mt-1 text-gray-400">Select a country and quantity</p>
+                <p className="text-xs mt-1 text-gray-400 dark:text-gray-500">Select a country and quantity</p>
               </div>
             )}
           </div>

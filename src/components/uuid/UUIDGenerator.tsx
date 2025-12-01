@@ -25,8 +25,8 @@ export default function UUIDGenerator(): JSX.Element {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4 font-sans">
-      <div className="w-full max-w-md bg-white shadow-lg rounded-xl overflow-hidden flex flex-col max-h-[90vh]">
+    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 flex items-center justify-center p-4 font-sans">
+      <div className="w-full max-w-md bg-white dark:bg-gray-800 shadow-lg rounded-xl overflow-hidden flex flex-col max-h-[90vh]">
 
         <div className="bg-indigo-600 p-6 shrink-0 relative overflow-hidden">
           <div className="flex justify-center mb-2">
@@ -41,7 +41,7 @@ export default function UUIDGenerator(): JSX.Element {
         <div className="p-6 flex flex-col h-full overflow-hidden">
           {/* Input Area */}
           <div className="shrink-0">
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               How many UUIDs? (1-20)
             </label>
             <input
@@ -50,7 +50,7 @@ export default function UUIDGenerator(): JSX.Element {
               max="20"
               value={count}
               onChange={(e) => setCount(e.target.value)}
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none transition-all mb-4"
+              className="w-full p-3 border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none transition-all mb-4"
               placeholder="5"
             />
 
@@ -64,13 +64,13 @@ export default function UUIDGenerator(): JSX.Element {
             </button>
           </div>
 
-          <hr className="border-gray-200 my-6 shrink-0" />
+          <hr className="border-gray-200 dark:border-gray-700 my-6 shrink-0" />
 
           {/* Results Area with Scroll */}
           <div className="flex-1 overflow-y-auto min-h-[200px] pr-1 custom-scrollbar">
             {uuids.length > 0 ? (
               <div className="space-y-3 animate-fade-in pb-2">
-                <p className="text-xs text-gray-500 font-medium uppercase tracking-wider mb-2 text-center">
+                <p className="text-xs text-gray-500 dark:text-gray-400 font-medium uppercase tracking-wider mb-2 text-center">
                   Click to copy
                 </p>
                 {uuids.map((uuid) => (
@@ -78,8 +78,8 @@ export default function UUIDGenerator(): JSX.Element {
                     key={uuid}
                     onClick={() => copyToClipboard(uuid)}
                     className={`w-full group flex items-center justify-between p-3 rounded-lg border text-sm font-mono transition-all duration-200 ${copiedId === uuid
-                      ? "bg-emerald-50 border-emerald-200 text-emerald-700"
-                      : "bg-white border-gray-200 text-gray-600 hover:border-indigo-300 hover:shadow-sm hover:bg-gray-50"
+                      ? "bg-emerald-50 dark:bg-emerald-900/20 border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-400"
+                      : "bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:border-indigo-300 hover:shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700"
                       }`}
                   >
                     <span className="truncate mr-2">{uuid}</span>
@@ -87,15 +87,15 @@ export default function UUIDGenerator(): JSX.Element {
                       {copiedId === uuid ? (
                         <Check className="w-5 h-5 text-emerald-500" />
                       ) : (
-                        <Copy className="w-4 h-4 text-gray-400 group-hover:text-indigo-500" />
+                        <Copy className="w-4 h-4 text-gray-400 dark:text-gray-500 group-hover:text-indigo-500" />
                       )}
                     </span>
                   </button>
                 ))}
               </div>
             ) : (
-              <div className="h-full flex flex-col items-center justify-center text-gray-400">
-                <div className="bg-gray-50 p-4 rounded-full mb-3">
+              <div className="h-full flex flex-col items-center justify-center text-gray-400 dark:text-gray-500">
+                <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-full mb-3">
                   <Hash className="h-8 w-8 opacity-20" />
                 </div>
                 <p>Ready to generate</p>
