@@ -57,8 +57,8 @@ export function PhoneNumberCountry(): JSX.Element {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4 font-sans">
-      <div className="w-full max-w-lg bg-white shadow-lg rounded-xl overflow-hidden flex flex-col my-8">
+    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 flex items-center justify-center p-4 font-sans">
+      <div className="w-full max-w-lg bg-white dark:bg-gray-800 shadow-lg rounded-xl overflow-hidden flex flex-col my-8">
 
         {/* Header */}
         <div className="bg-indigo-600 p-6 shrink-0 relative overflow-hidden">
@@ -80,14 +80,14 @@ export function PhoneNumberCountry(): JSX.Element {
 
             {/* Country Code Select */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center gap-2">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 flex items-center gap-2">
                 <Globe className="w-4 h-4" /> Country Code
               </label>
               <div className="relative">
                 <select
                   value={countryCode}
                   onChange={handleCountryCodeChange}
-                  className="w-full p-3 bg-white border border-gray-300 rounded-lg appearance-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none transition-all cursor-pointer text-gray-700 disabled:bg-gray-100 disabled:cursor-not-allowed"
+                  className="w-full p-3 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg appearance-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none transition-all cursor-pointer text-gray-700 dark:text-gray-100 disabled:bg-gray-100 dark:disabled:bg-gray-800 disabled:cursor-not-allowed"
                   disabled={!!fullPhoneNumber}
                 >
                   <option value="">Select country code</option>
@@ -105,7 +105,7 @@ export function PhoneNumberCountry(): JSX.Element {
 
             {/* Phone Number Input */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center gap-2">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 flex items-center gap-2">
                 <Phone className="w-4 h-4" /> Phone Number
               </label>
               <input
@@ -113,21 +113,21 @@ export function PhoneNumberCountry(): JSX.Element {
                 value={phoneNumber}
                 onChange={handlePhoneNumberChange}
                 placeholder="Enter phone number"
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none transition-all disabled:bg-gray-100 disabled:cursor-not-allowed"
+                className="w-full p-3 border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none transition-all disabled:bg-gray-100 dark:disabled:bg-gray-800 disabled:cursor-not-allowed"
                 disabled={!!fullPhoneNumber}
               />
             </div>
 
             {/* Divider */}
             <div className="flex items-center gap-3">
-              <div className="flex-1 border-t border-gray-300"></div>
-              <span className="text-sm font-medium text-gray-500">OR</span>
-              <div className="flex-1 border-t border-gray-300"></div>
+              <div className="flex-1 border-t border-gray-300 dark:border-gray-700"></div>
+              <span className="text-sm font-medium text-gray-500 dark:text-gray-400">OR</span>
+              <div className="flex-1 border-t border-gray-300 dark:border-gray-700"></div>
             </div>
 
             {/* Full Phone Number Input */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 Full Phone Number
               </label>
               <input
@@ -135,14 +135,14 @@ export function PhoneNumberCountry(): JSX.Element {
                 value={fullPhoneNumber}
                 onChange={handleFullPhoneNumberChange}
                 placeholder="Enter full phone number (e.g. +1234567890)"
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none transition-all disabled:bg-gray-100 disabled:cursor-not-allowed"
+                className="w-full p-3 border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none transition-all disabled:bg-gray-100 dark:disabled:bg-gray-800 disabled:cursor-not-allowed"
                 disabled={!!phoneNumber || !!countryCode}
               />
             </div>
 
             {/* Error Message */}
             {error && (
-              <div className="flex items-center gap-2 p-3 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm">
+              <div className="flex items-center gap-2 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg text-red-700 dark:text-red-400 text-sm">
                 <AlertCircle className="w-4 h-4 shrink-0" />
                 <span>{error}</span>
               </div>
@@ -158,7 +158,7 @@ export function PhoneNumberCountry(): JSX.Element {
             </button>
           </div>
 
-          <hr className="border-gray-200 my-6 shrink-0" />
+          <hr className="border-gray-200 dark:border-gray-700 my-6 shrink-0" />
 
           {/* Results */}
           <div className="pb-2">
@@ -169,12 +169,12 @@ export function PhoneNumberCountry(): JSX.Element {
                 </CodeBlock>
               </div>
             ) : (
-              <div className="flex flex-col items-center justify-center text-gray-400 py-12">
-                <div className="bg-gray-50 p-4 rounded-full mb-3">
+              <div className="flex flex-col items-center justify-center text-gray-400 dark:text-gray-500 py-12">
+                <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-full mb-3">
                   <Phone className="h-8 w-8 opacity-20" />
                 </div>
                 <p className="font-medium">Ready to parse</p>
-                <p className="text-xs mt-1 text-gray-400">Enter a phone number to get details</p>
+                <p className="text-xs mt-1 text-gray-400 dark:text-gray-500">Enter a phone number to get details</p>
               </div>
             )}
           </div>
