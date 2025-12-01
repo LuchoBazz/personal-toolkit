@@ -59,11 +59,6 @@ Go to **Settings → Actions → General → Workflow permissions** and ensure *
 * Ensure you’re not running from a fork: `GITHUB_TOKEN` from forked PRs cannot push to main repo. (If your build is triggered by a PR from fork, the push will be blocked.)
 * Inspect action logs for permission/401 errors.
 
-**Issue: Wrong Node version or build fails**
-
-* Use a supported Node LTS (18 or 20). Change `node-version` in workflow.
-* Run `npm run build` locally to see the full error message.
-
 **Issue: `gh-pages` branch empty or not created**
 
 * The `peaceiris` action creates/updates the branch. If branch is missing after running the action:
