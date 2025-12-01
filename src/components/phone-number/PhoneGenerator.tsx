@@ -21,7 +21,7 @@ const COUNTRIES = countryPhoneData.map(country => ({
 })).sort((a, b) => a.name.localeCompare(b.name));
 
 export default function PhoneGenerator() {
-  const [selectedCountry, setSelectedCountry] = useState("ES");
+  const [selectedCountry, setSelectedCountry] = useState("CO");
   const [count, setCount] = useState("5");
   const [phones, setPhones] = useState<string[]>([]);
   const [copiedId, setCopiedId] = useState<string | null>(null);
@@ -33,7 +33,7 @@ export default function PhoneGenerator() {
     setCount(validCount.toString());
 
     const countryInfo = COUNTRIES.find(c => c.code === selectedCountry);
-    const countryName = countryInfo ? countryInfo.name : "Spain";
+    const countryName = countryInfo ? countryInfo.name : "Colombia";
 
     const newPhones = Array.from({ length: validCount }, () => {
       const generated = generatePhoneNumber({ countryName });
