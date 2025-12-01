@@ -1,6 +1,6 @@
 {
   "name": "personal-toolkit",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
@@ -15,30 +15,30 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@docusaurus/core": "3.5.2",
-    "@docusaurus/preset-classic": "3.5.2",
-    "@easyops-cn/docusaurus-search-local": "^0.44.5",
-    "@mdx-js/react": "^3.0.0",
-    "awesome-phonenumber": "^7.4.0",
-    "clsx": "^2.0.0",
-    "katex": "^0.16.11",
+    "@docusaurus/core": "3.9.2",
+    "@docusaurus/preset-classic": "3.9.2",
+    "@easyops-cn/docusaurus-search-local": "0.52.1",
+    "@mdx-js/react": "^3.1.1",
+    "awesome-phonenumber": "^7.6.0",
+    "clsx": "^2.1.1",
+    "katex": "^0.16.25",
     "lucide-react": "^0.555.0",
     "phone-number-generator-js": "^1.2.16",
     "prism-react-renderer": "^2.3.0",
     "qrcode.react": "^4.2.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
     "rehype-katex": "^7.0.1",
     "remark-math": "^6.0.0"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "3.5.2",
-    "@docusaurus/tsconfig": "3.5.2",
-    "@docusaurus/types": "3.5.2",
+    "@docusaurus/module-type-aliases": "3.9.2",
+    "@docusaurus/tsconfig": "3.9.2",
+    "@docusaurus/types": "3.9.2",
     "autoprefixer": "^10.4.21",
-    "postcss": "^8.5.3",
-    "tailwindcss": "^3.4.17",
-    "typescript": "~5.5.2"
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.18",
+    "typescript": "~5.9.3"
   },
   "browserslist": {
     "production": [
@@ -53,6 +53,6 @@
     ]
   },
   "engines": {
-    "node": ">=18.0"
+    "node": ">=24.0"
   }
 }
