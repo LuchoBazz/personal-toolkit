@@ -74,11 +74,11 @@ export default function PhoneGenerator() {
           <div className="absolute top-0 right-0 p-4 opacity-10">
             <Phone className="w-24 h-24 text-white" />
           </div>
-          <div className="flex justify-center mb-2 relative z-10">
+          <div className="flex justify-center mb-2">
             <Phone className="text-indigo-200 w-8 h-8" />
           </div>
-          <h2 className="text-2xl font-bold text-white text-center relative z-10">Phone Generator</h2>
-          <p className="text-indigo-200 text-center text-sm mt-1 relative z-10">
+          <h2 className="text-2xl font-bold !text-white text-center">Phone Generator</h2>
+          <p className="!text-indigo-200 text-center text-sm mt-1">
             Generate valid numbers by country
           </p>
         </div>

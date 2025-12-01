@@ -27,7 +27,7 @@ export default function WifiQR(): JSX.Element {
       const downloadLink = document.createElement("a");
       downloadLink.href = pngUrl;
       downloadLink.download = `wifi-qr-${ssid}.png`;
-      
+
       document.body.appendChild(downloadLink);
       downloadLink.click();
       document.body.removeChild(downloadLink);
@@ -37,17 +37,17 @@ export default function WifiQR(): JSX.Element {
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
       <div className="w-full max-w-md bg-white shadow-lg rounded-xl overflow-hidden">
-        
+
         {/* Header Section */}
-        <div className="bg-indigo-600 p-6">
-          <h2 className="text-2xl font-bold text-white text-center">Wi-Fi QR Generator</h2>
-          <p className="text-indigo-200 text-center text-sm mt-1">
+        <div className="bg-indigo-600 p-6 p-6 shrink-0 relative overflow-hidden">
+          <h2 className="text-2xl font-bold !text-white text-center">Wi-Fi QR Generator</h2>
+          <p className="!text-indigo-200 text-center text-sm mt-1">
             Create a code to share your internet connection instantly.
           </p>
         </div>
 
         <div className="p-6 space-y-4">
-          
+
           {/* 1. Network Name (SSID) Input */}
           <div>
             <label className="block text-sm font-bold text-gray-700">
@@ -94,7 +94,7 @@ export default function WifiQR(): JSX.Element {
                 The key or password required to join the network.
               </p>
               <input
-                type="text" 
+                type="text"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none transition-all"
@@ -125,15 +125,14 @@ export default function WifiQR(): JSX.Element {
           <button
             onClick={handleGenerate}
             disabled={!ssid}
-            className={`w-full py-3 px-4 rounded-lg font-semibold text-white transition-colors mt-4 ${
-              ssid 
-                ? "bg-indigo-600 hover:bg-indigo-700 shadow-md" 
-                : "bg-gray-300 cursor-not-allowed"
-            }`}
+            className={`w-full py-3 px-4 rounded-lg font-semibold text-white transition-colors mt-4 ${ssid
+              ? "bg-indigo-600 hover:bg-indigo-700 shadow-md"
+              : "bg-gray-300 cursor-not-allowed"
+              }`}
           >
             Generate Wi-Fi QR
           </button>
-          
+
           <hr className="border-gray-200 my-6" />
 
           {/* Preview & Result Area */}
@@ -151,7 +150,7 @@ export default function WifiQR(): JSX.Element {
                     includeMargin={true}
                   />
                 </div>
-                
+
                 <p className="mt-4 text-sm text-gray-500 text-center px-4">
                   Scan to join: <strong>{ssid}</strong>
                 </p>
@@ -178,7 +177,7 @@ export default function WifiQR(): JSX.Element {
           </div>
         </div>
       </div>
-      
+
       {/* Animation Styles */}
       <style>{`
         @keyframes fadeIn {

@@ -28,11 +28,13 @@ export default function QRCode(): JSX.Element {
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
       <div className="w-full max-w-md bg-white shadow-lg rounded-xl overflow-hidden">
-        
+
         {/* Header */}
-        <div className="bg-indigo-600 p-6">
-          <h2 className="text-2xl font-bold text-white text-center">QR Generator</h2>
-          <p className="text-indigo-200 text-center text-sm mt-1">Convert your links into QR codes</p>
+        <div className="bg-indigo-600 p-6 shrink-0 relative overflow-hidden">
+          <h2 className="text-2xl font-bold !text-white text-center">QR Generator</h2>
+          <p className="!text-indigo-200 text-center text-sm mt-1">
+            Convert your links into QR codes
+          </p>
         </div>
 
         <div className="p-6">
@@ -52,15 +54,14 @@ export default function QRCode(): JSX.Element {
           <button
             onClick={handleGenerate}
             disabled={!url}
-            className={`w-full py-3 px-4 rounded-lg font-semibold text-white transition-colors ${
-              url 
-                ? "bg-indigo-600 hover:bg-indigo-700 shadow-md" 
+            className={`w-full py-3 px-4 rounded-lg font-semibold text-white transition-colors ${url
+                ? "bg-indigo-600 hover:bg-indigo-700 shadow-md"
                 : "bg-gray-300 cursor-not-allowed"
-            }`}
+              }`}
           >
             Generate QR
           </button>
-          
+
           <hr className="border-gray-200 my-6" />
 
           {/* Preview Area */}
@@ -81,7 +82,7 @@ export default function QRCode(): JSX.Element {
                     includeMargin={true}
                   />
                 </div>
-                
+
                 <p className="mt-4 text-sm text-gray-500 break-all text-center px-4 max-w-xs">
                   {qrValue}
                 </p>
@@ -108,7 +109,7 @@ export default function QRCode(): JSX.Element {
           </div>
         </div>
       </div>
-      
+
       {/* Simple fade-in animation */}
       <style>{`
         @keyframes fadeIn {

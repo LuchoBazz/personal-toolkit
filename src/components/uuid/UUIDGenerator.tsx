@@ -28,12 +28,12 @@ export default function UUIDGenerator(): JSX.Element {
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4 font-sans">
       <div className="w-full max-w-md bg-white shadow-lg rounded-xl overflow-hidden flex flex-col max-h-[90vh]">
 
-        <div className="bg-indigo-600 p-6 shrink-0">
+        <div className="bg-indigo-600 p-6 shrink-0 relative overflow-hidden">
           <div className="flex justify-center mb-2">
             <Hash className="text-indigo-200 w-8 h-8" />
           </div>
-          <h2 className="text-2xl font-bold text-white text-center">UUID Generator</h2>
-          <p className="text-indigo-200 text-center text-sm mt-1">
+          <h2 className="text-2xl font-bold !text-white text-center">UUID Generator</h2>
+          <p className="!text-indigo-200 text-center text-sm mt-1">
             Generate secure v4 unique identifiers
           </p>
         </div>

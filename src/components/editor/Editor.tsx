@@ -10,15 +10,15 @@ export function Editor(): JSX.Element {
       <div className="w-full max-w-lg bg-white shadow-lg rounded-xl overflow-hidden flex flex-col my-8">
 
         {/* Header */}
-        <div className="bg-indigo-600 p-6 shrink-0 relative overflow-hidden">
+        <div className="bg-indigo-600 p-6 p-6 shrink-0 relative overflow-hidden">
           <div className="absolute top-0 right-0 p-4 opacity-10">
             <FileText className="w-24 h-24 text-white" />
           </div>
-          <div className="flex justify-center mb-2 relative z-10">
+          <div className="flex justify-center mb-2">
             <FileText className="text-indigo-200 w-8 h-8" />
           </div>
-          <h2 className="text-2xl font-bold text-white text-center relative z-10">Text Editor</h2>
-          <p className="text-indigo-200 text-center text-sm mt-1 relative z-10">
+          <h2 className="text-2xl font-bold !text-white text-center">Text Editor</h2>
+          <p className="!text-indigo-200 text-center text-sm mt-1">
             Write and preview your text
           </p>
         </div>
