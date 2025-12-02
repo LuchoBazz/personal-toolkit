@@ -18,6 +18,7 @@
     "@docusaurus/core": "3.9.2",
     "@docusaurus/preset-classic": "3.9.2",
     "@easyops-cn/docusaurus-search-local": "0.52.1",
+    "@faker-js/faker": "^9.9.0",
     "@mdx-js/react": "^3.1.1",
     "awesome-phonenumber": "^7.6.0",
     "clsx": "^2.1.1",
