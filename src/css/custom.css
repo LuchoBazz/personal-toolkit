@@ -39,6 +39,14 @@
   /* Lightest */
   --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.3);
   /* Light background for highlighted lines */
+  --ifm-background-color: #0f172a;
+  background-color: #0c1221;
+  --ifm-navbar-background-color: #0f172a;
+  --ifm-footer-background-color: #0f172a;
+}
+
+html[data-theme='dark'] footer {
+  background-color: #050817;
 }
 
 :root {
