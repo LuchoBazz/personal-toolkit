@@ -1,5 +1,5 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
+import { themes as prismThemes } from 'prism-react-renderer';
+import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
@@ -84,6 +84,12 @@ const config: Config = {
         src: 'https://upload.wikimedia.org/wikipedia/commons/e/ef/Emoji_u263a.svg',
       },
       items: [
+        {
+          position: 'left',
+          label: 'Home',
+          to: 'https://luchobazz.github.io/about-me/',
+          target: '_self',
+        },
         {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
