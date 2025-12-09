@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Copy, Check, RefreshCw, User, Mail, Camera, Briefcase, MapPin, Fingerprint, Database, Sparkles } from "lucide-react";
+import { Copy, Check, RefreshCw, User, Mail, Camera, Briefcase, MapPin, Fingerprint, Database, Sparkles, ShoppingCart, Package, FileText, Tag, Box, ShoppingBag, Barcode, DollarSign } from "lucide-react";
 import { faker } from "@faker-js/faker";
 
 // ----------------------------------------------------------------------
@@ -54,6 +54,54 @@ const DATA_TYPES: DataTypeOption[] = [
         label: 'City',
         icon: <MapPin className="w-4 h-4" />,
         generate: faker.location.city
+    },
+    {
+        id: 'department',
+        label: 'Department',
+        icon: <ShoppingCart className="w-4 h-4" />,
+        generate: faker.commerce.department
+    },
+    {
+        id: 'productName',
+        label: 'Product Name',
+        icon: <Package className="w-4 h-4" />,
+        generate: faker.commerce.productName
+    },
+    {
+        id: 'productDescription',
+        label: 'Product Description',
+        icon: <FileText className="w-4 h-4" />,
+        generate: faker.commerce.productDescription
+    },
+    {
+        id: 'productAdjective',
+        label: 'Product Adjective',
+        icon: <Tag className="w-4 h-4" />,
+        generate: faker.commerce.productAdjective
+    },
+    {
+        id: 'productMaterial',
+        label: 'Product Material',
+        icon: <Box className="w-4 h-4" />,
+        generate: faker.commerce.productMaterial
+    },
+    {
+        id: 'product',
+        label: 'Product',
+        icon: <ShoppingBag className="w-4 h-4" />,
+        generate: faker.commerce.product
+    },
+    {
+        id: 'isbn',
+        label: 'ISBN',
+        icon: <Barcode className="w-4 h-4" />,
+        generate: faker.commerce.isbn
+    },
+    {
+        id: 'price',
+        label: 'Price',
+        icon: <DollarSign className="w-4 h-4" />,
+        generate: faker.commerce.price
     }
 ];
 
