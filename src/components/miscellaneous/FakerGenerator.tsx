@@ -188,12 +188,6 @@ const DATA_TYPES: DataTypeOption[] = [
     generate: faker.internet.mac
   },
   {
-    id: 'password',
-    label: 'Password',
-    icon: <Key className="w-4 h-4" />,
-    generate: faker.internet.password
-  },
-  {
     id: 'port',
     label: 'Port',
     icon: <Hash className="w-4 h-4" />,
