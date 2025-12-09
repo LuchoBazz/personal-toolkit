@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Copy, Check, RefreshCw, User, Mail, Camera, Briefcase, MapPin, Fingerprint, Database, Sparkles, ShoppingCart, Package, FileText, Tag, Box, ShoppingBag, Barcode, DollarSign } from "lucide-react";
+import { Copy, Check, RefreshCw, User, Mail, Camera, Briefcase, MapPin, Fingerprint, Database, Sparkles, ShoppingCart, Package, FileText, Tag, Box, ShoppingBag, Barcode, DollarSign, Smile, Globe, Server, Link, AtSign, Send, Hash, Activity, Wifi, Shield, Key, Lock, Network } from "lucide-react";
 import { faker } from "@faker-js/faker";
 
 // ----------------------------------------------------------------------
@@ -102,6 +102,126 @@ const DATA_TYPES: DataTypeOption[] = [
     label: 'Price',
     icon: <DollarSign className="w-4 h-4" />,
     generate: faker.commerce.price
+  },
+  {
+    id: 'emoji',
+    label: 'Emoji',
+    icon: <Smile className="w-4 h-4" />,
+    generate: faker.internet.emoji
+  },
+  {
+    id: 'displayName',
+    label: 'Display Name',
+    icon: <User className="w-4 h-4" />,
+    generate: faker.internet.displayName
+  },
+  {
+    id: 'domainName',
+    label: 'Domain Name',
+    icon: <Globe className="w-4 h-4" />,
+    generate: faker.internet.domainName
+  },
+  {
+    id: 'domainSuffix',
+    label: 'Domain Suffix',
+    icon: <Server className="w-4 h-4" />,
+    generate: faker.internet.domainSuffix
+  },
+  {
+    id: 'domainWord',
+    label: 'Domain Word',
+    icon: <Globe className="w-4 h-4" />,
+    generate: faker.internet.domainWord
+  },
+  {
+    id: 'exampleEmail',
+    label: 'Example Email',
+    icon: <Mail className="w-4 h-4" />,
+    generate: faker.internet.exampleEmail
+  },
+  {
+    id: 'httpMethod',
+    label: 'HTTP Method',
+    icon: <Send className="w-4 h-4" />,
+    generate: faker.internet.httpMethod
+  },
+  {
+    id: 'httpStatusCode',
+    label: 'HTTP Status Code',
+    icon: <Hash className="w-4 h-4" />,
+    generate: () => faker.internet.httpStatusCode().toString()
+  },
+  {
+    id: 'ip',
+    label: 'IP Address',
+    icon: <Network className="w-4 h-4" />,
+    generate: faker.internet.ip
+  },
+  {
+    id: 'ipv4',
+    label: 'IPv4 Address',
+    icon: <Wifi className="w-4 h-4" />,
+    generate: faker.internet.ipv4
+  },
+  {
+    id: 'ipv6',
+    label: 'IPv6 Address',
+    icon: <Wifi className="w-4 h-4" />,
+    generate: faker.internet.ipv6
+  },
+  {
+    id: 'jwt',
+    label: 'JWT Token',
+    icon: <Shield className="w-4 h-4" />,
+    generate: faker.internet.jwt
+  },
+  {
+    id: 'jwtAlgorithm',
+    label: 'JWT Algorithm',
+    icon: <Lock className="w-4 h-4" />,
+    generate: faker.internet.jwtAlgorithm
+  },
+  {
+    id: 'mac',
+    label: 'MAC Address',
+    icon: <Activity className="w-4 h-4" />,
+    generate: faker.internet.mac
+  },
+  {
+    id: 'password',
+    label: 'Password',
+    icon: <Key className="w-4 h-4" />,
+    generate: faker.internet.password
+  },
+  {
+    id: 'port',
+    label: 'Port',
+    icon: <Hash className="w-4 h-4" />,
+    generate: () => faker.internet.port().toString()
+  },
+  {
+    id: 'protocol',
+    label: 'Protocol',
+    icon: <Server className="w-4 h-4" />,
+    generate: faker.internet.protocol
+  },
+  {
+    id: 'url',
+    label: 'URL',
+    icon: <Link className="w-4 h-4" />,
+    generate: faker.internet.url
+  },
+  {
+    id: 'userAgent',
+    label: 'User Agent',
+    icon: <Server className="w-4 h-4" />,
+    generate: faker.internet.userAgent
+  },
+  {
+    id: 'username',
+    label: 'Username',
+    icon: <AtSign className="w-4 h-4" />,
+    generate: faker.internet.username
   }
 ];
 
